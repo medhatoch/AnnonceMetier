@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="499.0" prefWidth="758.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.RechercheAvanceController">
+   <children>
+      <Label layoutX="272.0" layoutY="14.0" text="Recherche" textFill="#09a7a7">
+         <font>
+            <Font name="Arial Bold" size="42.0" />
+         </font>
+      </Label>
+      <Label layoutX="448.0" layoutY="62.0" text="Avance" textFill="#09a7a7" />
+      <ComboBox fx:id="compte" layoutX="127.0" layoutY="163.0" prefWidth="150.0" style="-fx-background-color: #09a7a7;" />
+      <ComboBox fx:id="quartier" layoutX="126.0" layoutY="223.0" prefWidth="150.0" style="-fx-background-color: #09a7a7;" />
+      <ComboBox fx:id="ville" layoutX="126.0" layoutY="193.0" onAction="#findQuartierByVille" prefWidth="150.0" style="-fx-background-color: #09a7a7;" />
+      <TextField fx:id="titre" layoutX="127.0" layoutY="131.0" promptText="Que cherchez-vous?" />
+      <TableView fx:id="annonce" layoutX="344.0" layoutY="131.0" onMouseClicked="#findanItemByAnnonce" prefHeight="174.0" prefWidth="398.0">
+        <columns>
+         
+        </columns>
+      </TableView>
+      <TableView fx:id="annonceIm" layoutX="443.0" layoutY="345.0" prefHeight="127.0" prefWidth="150.0">
+        <columns>
+          
+        </columns>
+      </TableView>
+      <Label layoutX="479.0" layoutY="311.0" text="Metiers" textFill="#09a7a7">
+         <font>
+            <Font name="Arial Bold" size="22.0" />
+         </font>
+      </Label>
+      <Label layoutX="465.0" layoutY="98.0" text="Annonces" textFill="#09a7a7">
+         <font>
+            <Font name="Arial Bold" size="22.0" />
+         </font>
+      </Label>
+      <Label layoutX="49.0" layoutY="167.0" text="Compte" textFill="#09a7a7" />
+      <Label layoutX="49.0" layoutY="197.0" text="Ville" textFill="#09a7a7" />
+      <Label layoutX="49.0" layoutY="227.0" text="Quartier" textFill="#09a7a7" />
+      <DatePicker fx:id="datecre" layoutX="115.0" layoutY="252.0" />
+      <Label layoutX="49.0" layoutY="256.0" text="Date" textFill="#09a7a7" />
+      <Button layoutX="169.0" layoutY="299.0" mnemonicParsing="false" onAction="#recherche" style="-fx-background-color: #09a7a7;" text="Chercher" textFill="WHITE" />
+      <Button layoutX="353.0" layoutY="460.0" mnemonicParsing="false" onAction="#acceuil" style="-fx-background-color: #09a7a7;" text="Acceuil" textFill="WHITE" />
+   </children>
+</AnchorPane>

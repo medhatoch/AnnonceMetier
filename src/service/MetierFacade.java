@@ -1,0 +1,20 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package service;
+
+import bean.Metier;
+
+/**
+ *
+ * @author lenovo
+ */
+public class MetierFacade extends AbstractFacade<Metier>{
+    
+    public MetierFacade() {
+        super(Metier.class);
+    }
+    
+}
