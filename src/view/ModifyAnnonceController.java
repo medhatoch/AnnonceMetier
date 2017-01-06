@@ -85,7 +85,9 @@ public class ModifyAnnonceController implements Initializable {
  
     @FXML
     public void modifierAnnonce(ActionEvent actionEvent) throws IOException{
-        annonceFacade.modifyAnnonce(annonce.getValue(), titre.getText(), ville.getValue(), quartier.getValue(),Integer.parseInt(prix.getText()), annonceItem.getItems());
+        Annonce annonce = getParamAnnonce();
+        annonceFacade.modifyAnnonce(annonce, titre.getText(), ville.getValue(), quartier.getValue(), Integer.parseInt(prix.getText()), annonceItemFxHelper.getTable().getItems());
+      annonceFacade.deleteAnnonce(annonce);
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Information");
             alert.setHeaderText(null);

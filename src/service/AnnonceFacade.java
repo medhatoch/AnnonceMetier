@@ -86,15 +86,19 @@ public class AnnonceFacade extends AbstractFacade<Annonce> {
     }
 
     public void modifyAnnonce(Annonce annonce, String titre,Ville ville,Quartier quartier,int prix,List<AnnonceItem> annonceItems) {
-        annonce.setPrix(prix);
-        annonce.setVille(ville);
-        annonce.setQuartier(quartier);
-        annonce.setTitre(titre);
+        Annonce annoncemod = annonce;
+        annoncemod.setId(annonce.getId());
+        remove(annonce);
+        annoncemod.setPrix(prix);
+        annoncemod.setVille(ville);
+        annoncemod.setQuartier(quartier);
+        annoncemod.setTitre(titre);
+        create(annoncemod);
         for (AnnonceItem annonceItem : annonceItems) {
-            annonceItem.setAnnonce(annonce);
-            annonceItemFacade.edit(annonceItem);
+            annonceItem.setAnnonce(annoncemod);
+            annonceItem.setId(annonceItemFacade.generateId("AnnonceItem", "id"));
+            annonceItemFacade.create(annonceItem);
         }
-        edit(annonce);
     }
 
     public void deleteAnnonce(Annonce annonce) {
