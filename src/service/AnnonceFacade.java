@@ -26,14 +26,8 @@ public class AnnonceFacade extends AbstractFacade<Annonce> {
     private CompteFacade compteFacade = new CompteFacade();
     private AnnonceItemFacade annonceItemFacade = new AnnonceItemFacade();
 
-    /* private void createAnnonce(Long code, String titre, int prix, Annonce an, Ville ville, Quartier quartier, Compte c){
-        Compte compte = compteFacade.find(code);
-        if(c!=null){
-            Annonce annonce = new Annonce(titre, prix, ville, quartier);
-            create(annonce);
-        }
-        
-    }*/
+    
+   
     public void save(Annonce annonce, List<AnnonceItem> annonceItems) {
         create(annonce);
         for (AnnonceItem annonceItem : annonceItems) {
@@ -85,22 +79,7 @@ public class AnnonceFacade extends AbstractFacade<Annonce> {
         return getEntityManager().createQuery("SELECT a FROM Annonce a WHERE a.compte.id=" + compte.getId()).getResultList();
     }
 
-    public void modifyAnnonce(Annonce annonce, String titre,Ville ville,Quartier quartier,int prix,List<AnnonceItem> annonceItems) {
-        Annonce annoncemod = annonce;
-        annoncemod.setId(annonce.getId());
-        remove(annonce);
-        annoncemod.setPrix(prix);
-        annoncemod.setVille(ville);
-        annoncemod.setQuartier(quartier);
-        annoncemod.setTitre(titre);
-        create(annoncemod);
-        for (AnnonceItem annonceItem : annonceItems) {
-            annonceItem.setAnnonce(annoncemod);
-            annonceItem.setId(annonceItemFacade.generateId("AnnonceItem", "id"));
-            annonceItemFacade.create(annonceItem);
-        }
-    }
-
+    
     public void deleteAnnonce(Annonce annonce) {
         List<AnnonceItem> annonceItems = new ArrayList<>();
         annonceItems = annonceItemFacade.findAnnonceItemByAnnonce(annonce);

@@ -14,7 +14,7 @@ import javafx.scene.paint.Color;
 
 /**
  *
- * @author Mhamed Lmarbouh
+ * @author Lenovo
  *
  */
 public class TextFXPutUtil {
@@ -72,6 +72,13 @@ public class TextFXPutUtil {
     //rtrue if everything is a number else false
     public static boolean onlyNumbers(String number) {
         if (!number.matches("[0-9]+")) {
+            return false;
+        }
+        return true;
+    }
+    
+    public static boolean estprix(String number) {
+        if (!number.matches("[0-9]+.[0-9]+") || !number.matches("[0-9]+")) {
             return false;
         }
         return true;

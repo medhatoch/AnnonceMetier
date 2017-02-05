@@ -8,16 +8,16 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.ModifyAnnonceController">
+<AnchorPane id="AnchorPane" prefHeight="427.0" prefWidth="629.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.ModifyAnnonceController">
    <children>
-      <Button layoutX="470.0" layoutY="361.0" mnemonicParsing="false" onAction="#modifierAnnonce" style="-fx-background-color: #09a7a7;" text="Modifier l'annonce" textFill="WHITE" />
+      <Button layoutX="499.0" layoutY="388.0" mnemonicParsing="false" onAction="#modifierAnnonce" style="-fx-background-color: #09a7a7;" text="Modifier l'annonce" textFill="WHITE" />
       <ComboBox fx:id="compte" layoutX="225.0" layoutY="51.0" onAction="#findAnnonceByCompte" prefWidth="150.0" style="-fx-background-color: #09a7a7;" />
       <ComboBox fx:id="annonce" layoutX="225.0" layoutY="82.0" onAction="#remplirAnnonce" prefWidth="150.0" style="-fx-background-color: #09a7a7;" />
       <ComboBox fx:id="quartier" layoutX="375.0" layoutY="308.0" prefWidth="150.0" style="-fx-background-color: #09a7a7;" />
       <ComboBox fx:id="ville" layoutX="150.0" layoutY="308.0" onAction="#findQuartierByVille" prefWidth="150.0" style="-fx-background-color: #09a7a7;" />
       <ComboBox fx:id="metier" layoutX="150.0" layoutY="148.0" prefWidth="150.0" style="-fx-background-color: #09a7a7;" />
-      <TextField fx:id="titre" layoutX="226.0" layoutY="116.0" />
-      <TextField fx:id="nombre" layoutX="384.0" layoutY="148.0" prefHeight="25.0" prefWidth="48.0" />
+      <TextField fx:id="titre" layoutX="226.0" layoutY="116.0" promptText="Titre de l'annonce" />
+      <TextField fx:id="nombre" layoutX="384.0" layoutY="148.0" prefHeight="25.0" prefWidth="48.0" promptText="1-10" />
       <TableView fx:id="annonceItem" layoutX="201.0" layoutY="181.0" prefHeight="119.0" prefWidth="200.0">
         <columns>
           
@@ -34,11 +34,13 @@
       <Label layoutX="96.0" layoutY="312.0" text="Ville*" textFill="#09a7a7" />
       <Label layoutX="96.0" layoutY="55.0" text="Compte*" textFill="#09a7a7" />
       <Label layoutX="96.0" layoutY="340.0" text="Prix*" textFill="#09a7a7" />
-      <Button layoutX="14.0" layoutY="361.0" mnemonicParsing="false" onAction="#annuler" style="-fx-background-color: #09a7a7;" text="Acceuil" textFill="WHITE" />
+      <Button layoutX="14.0" layoutY="388.0" mnemonicParsing="false" onAction="#annuler" style="-fx-background-color: #09a7a7;" text="Acceuil" textFill="WHITE" />
       <Label layoutX="179.0" layoutY="14.0" text="Modifier une annonce" textFill="#09a7a7">
          <font>
             <Font name="Arial Bold" size="23.0" />
          </font>
       </Label>
+      <Label layoutX="153.0" layoutY="392.0" text="Tous les champs avec un astérisque(*) sont obligatoires." textFill="RED" />
+      <Label fx:id="erreur" layoutX="154.0" layoutY="371.0" textFill="RED" />
    </children>
 </AnchorPane>

@@ -12,7 +12,6 @@ import bean.Quartier;
 import bean.Ville;
 import helper.AnnonceFxHelper;
 import helper.AnnonceItemFxHelper;
-import helper.CompteFxHelper;
 import java.io.IOException;
 import java.net.URL;
 import java.util.Date;

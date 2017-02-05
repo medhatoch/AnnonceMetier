@@ -44,7 +44,7 @@
       <Label layoutX="49.0" layoutY="167.0" text="Compte" textFill="#09a7a7" />
       <Label layoutX="49.0" layoutY="197.0" text="Ville" textFill="#09a7a7" />
       <Label layoutX="49.0" layoutY="227.0" text="Quartier" textFill="#09a7a7" />
-      <DatePicker fx:id="datecre" layoutX="115.0" layoutY="252.0" />
+      <DatePicker fx:id="datecre" layoutX="127.0" layoutY="252.0" prefHeight="25.0" prefWidth="149.0" />
       <Label layoutX="49.0" layoutY="256.0" text="Date" textFill="#09a7a7" />
       <Button layoutX="169.0" layoutY="299.0" mnemonicParsing="false" onAction="#recherche" style="-fx-background-color: #09a7a7;" text="Chercher" textFill="WHITE" />
       <Button layoutX="353.0" layoutY="460.0" mnemonicParsing="false" onAction="#acceuil" style="-fx-background-color: #09a7a7;" text="Acceuil" textFill="WHITE" />

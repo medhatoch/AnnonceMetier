@@ -27,7 +27,7 @@ public class Annonce implements Serializable {
     @Id
     private Long id;
     private String titre;
-    private int prix;
+    private double prix;
     @OneToMany(mappedBy="annonce",
     cascade={CascadeType.PERSIST, CascadeType.REMOVE})
     private List<AnnonceItem> annonceItems;
@@ -49,7 +49,7 @@ public class Annonce implements Serializable {
         this.datecre = datecre;
     }
 
-    public Annonce(Long id, String titre, int prix, Ville ville, Quartier quartier, Compte compte, Date datecre) {
+    public Annonce(Long id, String titre, double prix, Ville ville, Quartier quartier, Compte compte, Date datecre) {
         this.id = id;
         this.titre = titre;
         this.prix = prix;
@@ -74,14 +74,14 @@ public class Annonce implements Serializable {
     public Annonce() {
     }
 
-    public Annonce( String titre, int prix, Ville ville, Quartier quartier) {
+    public Annonce( String titre, double prix, Ville ville, Quartier quartier) {
         this.titre = titre;
         this.prix = prix;
         this.ville = ville;
         this.quartier = quartier;
     }
 
-    public Annonce(String titre, int prix, Ville ville, Quartier quartier, Compte compte) {
+    public Annonce(String titre, double prix, Ville ville, Quartier quartier, Compte compte) {
         this.titre = titre;
         this.prix = prix;
         this.ville = ville;
@@ -90,7 +90,7 @@ public class Annonce implements Serializable {
     }
 
    
-    public Annonce(Long id, String titre, int prix, Ville ville, Quartier quartier, Compte compte) {
+    public Annonce(Long id, String titre, double prix, Ville ville, Quartier quartier, Compte compte) {
         this.id = id;
         this.titre = titre;
         this.prix = prix;
@@ -99,7 +99,7 @@ public class Annonce implements Serializable {
         this.compte = compte;
     }
 
-    public Annonce(Long id, String titre, int prix, List<AnnonceItem> annonceItems, Ville ville, Quartier quartier, Compte compte) {
+    public Annonce(Long id, String titre, double prix, List<AnnonceItem> annonceItems, Ville ville, Quartier quartier, Compte compte) {
         this.id = id;
         this.titre = titre;
         this.prix = prix;
@@ -123,11 +123,11 @@ public class Annonce implements Serializable {
         this.titre = titre;
     }
 
-    public int getPrix() {
+    public double getPrix() {
         return prix;
     }
 
-    public void setPrix(int prix) {
+    public void setPrix(double prix) {
         this.prix = prix;
     }
 

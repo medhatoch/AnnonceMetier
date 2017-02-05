@@ -18,9 +18,7 @@ import helper.AnnonceItemFxHelper;
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
@@ -104,13 +102,15 @@ public class AnnonceController implements Initializable {
             erreur.setText("(Erreur 'Compte') un des champs n'a pas bien remplit !");
         } else if (textFXPutUtil.onlyLetters(titre.getText()) == false) {
             erreur.setText("(Erreur 'Titre') un des champs n'a pas bien remplit !");
-        } else if (ville.getValue() == null) {
+        }else if (annonceItem.getItems().isEmpty()){
+            erreur.setText("(Erreur 'Liste des metiers') un des champs n'a pas bien remplit !");
+        }else if (ville.getValue() == null) {
             erreur.setText("(Erreur 'Ville') un des champs n'a pas bien remplit !");
-        } else if (textFXPutUtil.onlyNumbers(prix.getText()) == false) {
+        } else if (textFXPutUtil.estprix(prix.getText()) == false) {
             erreur.setText("(Erreur 'prix') un des champs n'a pas bien remplit !");
         } else {
             
-            Annonce annonce = new Annonce(annonceFacade.generateId("Annonce", "id"), titre.getText(), Integer.parseInt(prix.getText()), ville.getValue(), quartier.getValue(), compte.getSelectionModel().getSelectedItem(), datecrea);
+            Annonce annonce = new Annonce(annonceFacade.generateId("Annonce", "id"), titre.getText(),new Double(prix.getText()), ville.getValue(), quartier.getValue(), compte.getSelectionModel().getSelectedItem(), datecrea);
             annonceFacade.save(annonce, annonceItemFxHelper.getTable().getItems());
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Information");
@@ -120,12 +120,6 @@ public class AnnonceController implements Initializable {
             ViewLauncher.forward(actionEvent, "Annonce.fxml", this.getClass());
        
         }
-
-
-        /*List<Annonce> annonces = new ArrayList<>();
-        c.getAnnonces().add(annonce);
-        c.setAnnonces(annonces);
-        compteFacade.edit(c);*/
         
     }
 
@@ -135,8 +129,16 @@ public class AnnonceController implements Initializable {
 
     @FXML
     public void saveAnnonceItem(ActionEvent actionEvent) {
-        AnnonceItem annonceItem = getParamAnnonceItem();
-        annonceItemFxHelper.getTable().getItems().add(annonceItem);
+        AnnonceItem annonceIte;
+        if (metier.getValue() == null) {
+            erreur.setText("(Erreur 'Metier') un des champs n'a pas bien remplit !");
+        } else if (textFXPutUtil.onlyNumbers(nombre.getText()) == false || nombre.getText()=="" || Integer.parseInt(nombre.getText()) > 10  || Integer.parseInt(nombre.getText()) < 1) {
+            erreur.setText("(Erreur 'Nombre') un des champs n'a pas bien remplit !");
+        } else{
+            annonceIte = new AnnonceItem(metier.getSelectionModel().getSelectedItem(), Integer.parseInt(nombre.getText()));
+            annonceItemFxHelper.getTable().getItems().add(annonceIte);
+        }
+        
     }
 
     @FXML
